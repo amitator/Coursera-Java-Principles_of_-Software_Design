@@ -1,5 +1,6 @@
-import java.util.*;
-import edu.duke.*;
+package org.coursera.psd;
+
+import java.util.ArrayList;
 
 public class EarthQuakeClient {
     public EarthQuakeClient() {

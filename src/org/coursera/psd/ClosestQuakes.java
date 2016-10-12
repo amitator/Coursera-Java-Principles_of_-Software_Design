@@ -1,10 +1,4 @@
-
-/**
- * Find N-closest quakes
- * 
- * @author Duke Software/Learn to Program
- * @version 1.0, November 2015
- */
+package org.coursera.psd;
 
 import java.util.*;
 
