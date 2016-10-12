@@ -10,7 +10,11 @@ public class EarthQuakeClient {
     public ArrayList<QuakeEntry> filterByMagnitude(ArrayList<QuakeEntry> quakeData,
     double magMin) {
         ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
-        // TODO
+        for (QuakeEntry qe : quakeData) {
+            if (qe.getMagnitude() > magMin){
+                answer.add(qe);
+            }
+        }
 
         return answer;
     }
@@ -42,6 +46,10 @@ public class EarthQuakeClient {
         String source = "data/nov20quakedata.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
         System.out.println("read data for "+list.size()+" quakes");
+        ArrayList<QuakeEntry> listBig = filterByMagnitude(list, 5.0d);
+        for (QuakeEntry qe : listBig){
+            System.out.println(qe);
+        }
 
     }
 
