@@ -1,11 +1,23 @@
 package org.coursera.psd;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class ClosestQuakes {
     public ArrayList<QuakeEntry> getClosest(ArrayList<QuakeEntry> quakeData, Location current, int howMany) {
         ArrayList<QuakeEntry> ret = new ArrayList<QuakeEntry>();
-        // TO DO
+        ArrayList<QuakeEntry> copy = new ArrayList<QuakeEntry>(quakeData);
+        for (int i = 0; i < howMany; i++){
+            int minIndex = 0;
+            for (int j = 1; j < copy.size(); j++){
+                QuakeEntry qe = copy.get(j);
+                Location  loc = qe.getLocation();
+                if (loc.distanceTo(current) < copy.get(minIndex).getLocation().distanceTo(current)){
+                    minIndex = j;
+                }
+            }
+            ret.add(copy.get(minIndex));
+            copy.remove(minIndex);
+        }
 
         return ret;
     }
