@@ -12,4 +12,8 @@ public class QuakeEntry {
         this.magnitude = magnitude;
         this.title = title;
     }
+
+    public double getMagnitude(){
+        return this.magnitude;
+    }
 }
