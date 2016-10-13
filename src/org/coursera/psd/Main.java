@@ -6,5 +6,6 @@ public class Main {
 //        closestQuakes.findClosestQuakes();
         EarthQuakeClient earthQuakeClient = new EarthQuakeClient();
         earthQuakeClient.bigQuakes();
+        earthQuakeClient.closeToMe();
     }
 }

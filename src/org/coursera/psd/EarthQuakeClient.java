@@ -19,11 +19,15 @@ public class EarthQuakeClient {
         return answer;
     }
 
-    public ArrayList<QuakeEntry> filterByDistanceFrom(ArrayList<QuakeEntry> quakeData,
-    double distMax,
-    Location from) {
+    public ArrayList<QuakeEntry> filterByDistanceFrom(ArrayList<QuakeEntry> quakeData, double distMax, Location from) {
         ArrayList<QuakeEntry> answer = new ArrayList<QuakeEntry>();
-        // TODO
+        for (QuakeEntry qe : quakeData) {
+            //IF distance to Location (from) less than distMax - save it
+            double current = qe.getLocation().distanceTo(from);
+            if (current < distMax) {
+                answer.add(qe);
+            }
+        }
 
         return answer;
     }
@@ -45,7 +49,9 @@ public class EarthQuakeClient {
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         String source = "data/nov20quakedatasmall.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
+        System.out.println("===============================");
         System.out.println("read data for "+list.size()+" quakes");
+        System.out.println("===============================");
 
         //Magnitude
         double mag = 5.0d;
@@ -59,17 +65,27 @@ public class EarthQuakeClient {
 
     public void closeToMe(){
         EarthQuakeParser parser = new EarthQuakeParser();
-        String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+//        String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        String source = "data/nov20quakedatasmall.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
+        System.out.println("===============================");
         System.out.println("read data for "+list.size()+" quakes");
+        System.out.println("===============================");
 
         // This location is Durham, NC
         Location city = new Location(35.988, -78.907);
 
         // This location is Bridgeport, CA
-        // Location city =  new Location(38.17, -118.82);
+//         Location city =  new Location(38.17, -118.82);
 
-        // TODO
+        //maxDistance in meters
+        double maxDistance = 1000000.0d;
+        ArrayList<QuakeEntry> closest = filterByDistanceFrom(list, maxDistance, city);
+        for (QuakeEntry qe : closest) {
+            System.out.println(qe.getInfo());
+        }
+        System.out.println("Found " + closest.size() + " matching that criteria.");
+
     }
 
     public void createCSV(){
