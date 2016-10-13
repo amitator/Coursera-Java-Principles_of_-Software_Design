@@ -15,6 +15,13 @@ public class LargestQuakes {
         int largestIndex = indexOfLargest(list);
         System.out.println("Largest index is " + largestIndex + " with magnitude "
                             + list.get(largestIndex).getMagnitude());
+
+        //HOWMANY
+        int howMany = 5;
+        ArrayList<QuakeEntry> largestQuakes = new ArrayList<>(getLargest(list, howMany));
+        for (int i = 0; i < largestQuakes.size(); i++){
+            System.out.println(largestQuakes.get(i));
+        }
     }
 
     public int indexOfLargest(ArrayList<QuakeEntry> list){
@@ -27,5 +34,19 @@ public class LargestQuakes {
             }
         }
         return largestIndex;
+    }
+
+    public ArrayList<QuakeEntry> getLargest(ArrayList<QuakeEntry> quakeData, int howMany){
+        ArrayList<QuakeEntry> result = new ArrayList<>();
+        ArrayList<QuakeEntry> copy = new ArrayList<>(quakeData);
+        if (quakeData.size() < howMany){
+            howMany = quakeData.size();
+        }
+        for (int i = 0; i < howMany; i++){
+            int largestIndex = indexOfLargest(copy);
+            result.add(copy.get(largestIndex));
+            copy.remove(largestIndex);
+        }
+        return result;
     }
 }
