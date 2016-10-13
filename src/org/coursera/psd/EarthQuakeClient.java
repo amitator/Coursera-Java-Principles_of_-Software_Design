@@ -43,6 +43,27 @@ public class EarthQuakeClient {
         return result;
     }
 
+    public void quakesOfDepth() {
+        EarthQuakeParser parser = new EarthQuakeParser();
+        //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        String source = "data/nov20quakedatasmall.atom";
+        ArrayList<QuakeEntry> list  = parser.read(source);
+        System.out.println("===============================");
+        System.out.println("read data for "+list.size()+" quakes");
+        System.out.println("===============================");
+
+        //MIN and MAX depth
+        double minDepth = -10_000;
+        double maxDepth = -5_000;
+        ArrayList<QuakeEntry> result = filterByDepth(list, minDepth, maxDepth);
+        System.out.println("Find quakes with depth between " + minDepth +
+                            " and " + maxDepth);
+        for (QuakeEntry qe : result){
+            System.out.println(qe);
+        }
+        System.out.println("Found " + result.size() + " that match that criteria");
+    }
+
     public void dumpCSV(ArrayList<QuakeEntry> list){
         System.out.println("Latitude,Longitude,Magnitude,Info");
         for(QuakeEntry qe : list){

@@ -7,5 +7,6 @@ public class Main {
         EarthQuakeClient earthQuakeClient = new EarthQuakeClient();
         earthQuakeClient.bigQuakes();
         earthQuakeClient.closeToMe();
+        earthQuakeClient.quakesOfDepth();
     }
 }
