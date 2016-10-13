@@ -43,13 +43,17 @@ public class EarthQuakeClient {
     public void bigQuakes() {
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedata.atom";
+        String source = "data/nov20quakedatasmall.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
         System.out.println("read data for "+list.size()+" quakes");
-        ArrayList<QuakeEntry> listBig = filterByMagnitude(list, 5.0d);
+
+        //Magnitude
+        double mag = 5.0d;
+        ArrayList<QuakeEntry> listBig = filterByMagnitude(list, mag);
         for (QuakeEntry qe : listBig){
             System.out.println(qe);
         }
+        System.out.println("Found " + listBig.size() + " quakes that bigger than " + mag + " of magnitude");
 
     }
 
