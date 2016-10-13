@@ -80,10 +80,14 @@ public class EarthQuakeClient {
         System.out.println("===============================");
 
         //WHERE and WHAT to search
-        String whereToSearch = "end";
-        String whatToSearch = "California";
+//        String whereToSearch = "end";
+//        String whatToSearch = "California";
+        String whereToSearch = "any";
+        String whatToSearch = "Can";
+//        String whereToSearch = "start";
+//        String whatToSearch = "Explosion";
 
-        ArrayList<QuakeEntry> result = filterByPhrase(list, whereToSearch, whatToSearch);
+                ArrayList<QuakeEntry> result = filterByPhrase(list, whereToSearch, whatToSearch);
         for (QuakeEntry qe : result){
             System.out.println(qe);
         }
