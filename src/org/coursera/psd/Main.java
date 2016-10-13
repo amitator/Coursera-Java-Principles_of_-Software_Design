@@ -11,5 +11,7 @@ public class Main {
         earthQuakeClient.quakesByPhrase();
         ClosestQuakes closestQuakes = new ClosestQuakes();
         closestQuakes.findClosestQuakes();
+        LargestQuakes largestQuakes = new LargestQuakes();
+        largestQuakes.findLargestQuakes();
     }
 }
