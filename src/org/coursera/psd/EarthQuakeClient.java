@@ -73,18 +73,19 @@ public class EarthQuakeClient {
         System.out.println("===============================");
 
         // This location is Durham, NC
-        Location city = new Location(35.988, -78.907);
+//        Location city = new Location(35.988, -78.907);
 
         // This location is Bridgeport, CA
-//         Location city =  new Location(38.17, -118.82);
+         Location city =  new Location(38.17, -118.82);
 
         //maxDistance in meters
         double maxDistance = 1000000.0d;
         ArrayList<QuakeEntry> closest = filterByDistanceFrom(list, maxDistance, city);
         for (QuakeEntry qe : closest) {
-            System.out.println(qe.getInfo());
+            System.out.println(qe.getLocation().distanceTo(city) / 1000 + "\t" + qe.getInfo());
         }
-        System.out.println("Found " + closest.size() + " matching that criteria.");
+        System.out.println("Found " + closest.size() + " earthquakes that closer then " + maxDistance/1000 +
+                            " km from city");
 
     }
 
