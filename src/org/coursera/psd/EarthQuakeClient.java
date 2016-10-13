@@ -72,9 +72,9 @@ public class EarthQuakeClient {
     public void quakesByPhrase(){
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedatasmall.atom";
+        String source = "data/nov20quakedata.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
-        System.out.println("===============================");
+        System.out.println("\n===============================");
         System.out.println("quakesByPhrase()");
         System.out.println("read data for "+list.size()+" quakes");
         System.out.println("===============================");
@@ -83,21 +83,21 @@ public class EarthQuakeClient {
 //        String whereToSearch = "end";
 //        String whatToSearch = "California";
         String whereToSearch = "any";
-        String whatToSearch = "Can";
+        String whatToSearch = "Creek";
 //        String whereToSearch = "start";
 //        String whatToSearch = "Explosion";
 
                 ArrayList<QuakeEntry> result = filterByPhrase(list, whereToSearch, whatToSearch);
-        for (QuakeEntry qe : result){
-            System.out.println(qe);
-        }
+//        for (QuakeEntry qe : result){
+//            System.out.println(qe);
+//        }
         System.out.println("Found " + result.size() + " quakes match " + whatToSearch + " at " + whereToSearch);
     }
 
     public void quakesOfDepth() {
         EarthQuakeParser parser = new EarthQuakeParser();
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/nov20quakedatasmall.atom";
+        String source = "data/nov20quakedata.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
         System.out.println("===============================");
         System.out.println("quakesOfDepth()");
@@ -105,14 +105,14 @@ public class EarthQuakeClient {
         System.out.println("===============================");
 
         //MIN and MAX depth
-        double minDepth = -10_000;
+        double minDepth = -8_000;
         double maxDepth = -5_000;
         ArrayList<QuakeEntry> result = filterByDepth(list, minDepth, maxDepth);
         System.out.println("Find quakes with depth between " + minDepth +
                             " and " + maxDepth);
-        for (QuakeEntry qe : result){
-            System.out.println(qe);
-        }
+//        for (QuakeEntry qe : result){
+//            System.out.println(qe);
+//        }
         System.out.println("Found " + result.size() + " that match that criteria");
     }
 
