@@ -9,5 +9,7 @@ public class Main {
         earthQuakeClient.closeToMe();
         earthQuakeClient.quakesOfDepth();
         earthQuakeClient.quakesByPhrase();
+        ClosestQuakes closestQuakes = new ClosestQuakes();
+        closestQuakes.findClosestQuakes();
     }
 }

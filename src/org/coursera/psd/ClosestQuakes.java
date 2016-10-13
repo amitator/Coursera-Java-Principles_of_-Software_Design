@@ -6,6 +6,9 @@ public class ClosestQuakes {
     public ArrayList<QuakeEntry> getClosest(ArrayList<QuakeEntry> quakeData, Location current, int howMany) {
         ArrayList<QuakeEntry> ret = new ArrayList<QuakeEntry>();
         ArrayList<QuakeEntry> copy = new ArrayList<QuakeEntry>(quakeData);
+        if (quakeData.size() < howMany){
+            howMany = quakeData.size();
+        }
         for (int i = 0; i < howMany; i++){
             int minIndex = 0;
             for (int j = 1; j < copy.size(); j++){
@@ -27,11 +30,16 @@ public class ClosestQuakes {
         String source = "data/nov20quakedatasmall.atom";
 //        String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
+        System.out.println("\n===============================");
+        System.out.println("findClosestQuakes()");
         System.out.println("read data for "+list.size());
+        System.out.println("===============================");
 
+        //LOCATION and HOWMANY
         Location jakarta  = new Location(-6.211,106.845);
+        int howMany = 3;
 
-        ArrayList<QuakeEntry> close = getClosest(list,jakarta,10);
+        ArrayList<QuakeEntry> close = getClosest(list,jakarta,howMany);
         for(int k=0; k < close.size(); k++){
             QuakeEntry entry = close.get(k);
             double distanceInMeters = jakarta.distanceTo(entry.getLocation());
