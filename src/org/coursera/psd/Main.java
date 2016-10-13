@@ -8,5 +8,6 @@ public class Main {
         earthQuakeClient.bigQuakes();
         earthQuakeClient.closeToMe();
         earthQuakeClient.quakesOfDepth();
+        earthQuakeClient.quakesByPhrase();
     }
 }
