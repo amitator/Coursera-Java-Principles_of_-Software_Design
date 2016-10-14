@@ -1,3 +1,11 @@
+package org.coursera.psd.Week_2_Implementing_Selection_Sort;
+
+/**
+ * QuakeEntry.
+ *
+ * @author (Igor Prus)
+ * @version (Oct 14/16)
+ */
 
 public class QuakeEntry implements Comparable<QuakeEntry>{
 	

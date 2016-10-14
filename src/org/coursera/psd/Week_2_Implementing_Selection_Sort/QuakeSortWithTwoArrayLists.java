@@ -1,5 +1,13 @@
-import java.util.*;
-import edu.duke.*;
+package org.coursera.psd.Week_2_Implementing_Selection_Sort;
+
+/**
+ * QuakeSortWithTwoArrayLists.
+ *
+ * @author (Igor Prus)
+ * @version (Oct 14/16)
+ */
+
+import java.util.ArrayList;
 
 public class QuakeSortWithTwoArrayLists {
     // This is the code from the Video of Selection Sort with Two ArrayLists

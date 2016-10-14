@@ -1,17 +1,37 @@
+package org.coursera.psd.Week_2_Implementing_Selection_Sort;
 
 /**
- * Write a description of class QuakeSortInPlace here.
+ * QuakeSortInPlace.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Igor Prus)
+ * @version (Oct 14/16)
  */
 
-import java.util.*;
-import edu.duke.*;
+import java.util.ArrayList;
 
 public class QuakeSortInPlace {
     public QuakeSortInPlace() {
         // TODO Auto-generated constructor stub
+    }
+
+    public int getLargestDepth(ArrayList<QuakeEntry> quakeData, int index){
+        int indexOfLargest = index;
+        for (int i = index + 1; i < quakeData.size(); i++){
+            if (Math.abs(quakeData.get(i).getDepth()) > Math.abs(quakeData.get(indexOfLargest).getDepth())){
+                indexOfLargest = i;
+            }
+        }
+        return indexOfLargest;
+    }
+
+    public void sortByLargestDepth(ArrayList<QuakeEntry> in){
+        for (int i = 0; i < in.size(); i++){
+            int indexOfLargest = getLargestDepth(in, i);
+            QuakeEntry qeI = in.get(i);
+            QuakeEntry qeLargest = in.get(indexOfLargest);
+            in.set(i, qeLargest);
+            in.set(indexOfLargest, qeI);
+        }
     }
    
     public int getSmallestMagnitude(ArrayList<QuakeEntry> quakes, int from) {
