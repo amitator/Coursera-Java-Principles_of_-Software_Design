@@ -61,15 +61,34 @@ public class QuakeSortInPlace {
     }
     
     public void sortByMagnitude(ArrayList<QuakeEntry> in) {
-       
-       for (int i=0; i< in.size(); i++) {
-            int minIdx = getSmallestMagnitude(in,i);
+
+        for (int i = 0; i < in.size(); i++) {
+            int minIdx = getSmallestMagnitude(in, i);
             QuakeEntry qi = in.get(i);
             QuakeEntry qmin = in.get(minIdx);
-            in.set(i,qmin);
-            in.set(minIdx,qi);
+            in.set(i, qmin);
+            in.set(minIdx, qi);
         }
-        
+    }
+
+    public boolean checkInSortedOrder(ArrayList<QuakeEntry> quakes){
+        for (int i = 0; i < quakes.size() - 1; i++){
+            if(!(quakes.get(i).getMagnitude() < quakes.get(i + 1).getMagnitude())){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void sortByMagnitudeWithBubbleSortWithCheck(ArrayList<QuakeEntry> in){
+        int howMany;
+        for (int i = 0; i < in.size() - 1; i++){
+            onePassBubbleSort(in, i);
+            if (checkInSortedOrder(in)){
+                howMany = i;
+                break;
+            }
+        }
     }
 
     public void testSort() {
