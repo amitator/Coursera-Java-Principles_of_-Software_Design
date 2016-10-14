@@ -24,7 +24,11 @@ public class QuakeSortInPlace {
         }
     }
 
-    public void
+    public void sortByMagnitudeWithBubbleSort(ArrayList<QuakeEntry> in){
+        for (int i = 0; i < in.size() - 1; i++){
+            onePassBubbleSort(in, i);
+        }
+    }
 
     public int getLargestDepth(ArrayList<QuakeEntry> quakeData, int index){
         int indexOfLargest = index;
