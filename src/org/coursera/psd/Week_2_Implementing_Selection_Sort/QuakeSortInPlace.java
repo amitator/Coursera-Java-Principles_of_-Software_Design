@@ -81,27 +81,29 @@ public class QuakeSortInPlace {
     }
 
     public void sortByMagnitudeWithBubbleSortWithCheck(ArrayList<QuakeEntry> in){
-        int howMany;
+        int howMany = 0;
         for (int i = 0; i < in.size() - 1; i++){
             onePassBubbleSort(in, i);
             if (checkInSortedOrder(in)){
-                howMany = i;
+                howMany = i + 1;
                 break;
             }
         }
+        System.out.println("\nSorted in " + howMany + " passes");
     }
 
     public void testSort() {
         EarthQuakeParser parser = new EarthQuakeParser(); 
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/earthquakeDataSampleSix2.atom";
+        String source = "data/earthquakeDataSampleSix1.atom";
         //String source = "data/nov20quakedata.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);  
        
         System.out.println("read data for "+list.size()+" quakes");    
 //        sortByMagnitude(list);
 //        sortByLargestDepth(list);
-        sortByMagnitudeWithBubbleSort(list);
+//        sortByMagnitudeWithBubbleSort(list);
+        sortByMagnitudeWithBubbleSortWithCheck(list);
         for (QuakeEntry qe: list) { 
             System.out.println(qe);
         } 
