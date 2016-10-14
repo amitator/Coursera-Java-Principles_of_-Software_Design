@@ -1,4 +1,4 @@
-package org.coursera.psd;
+package org.coursera.psd.Week_1;
 
 import java.util.ArrayList;
 

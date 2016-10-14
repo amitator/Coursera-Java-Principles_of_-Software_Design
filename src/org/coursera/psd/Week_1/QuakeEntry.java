@@ -1,4 +1,4 @@
-package org.coursera.psd;
+package org.coursera.psd.Week_1;
 
 public class QuakeEntry implements Comparable<QuakeEntry> {
     private Location myLocation;

@@ -1,4 +1,4 @@
-package org.coursera.psd;
+package org.coursera.psd.Week_1_Filtering_Data;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

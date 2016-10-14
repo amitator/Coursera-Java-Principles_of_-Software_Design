@@ -1,4 +1,4 @@
-package org.coursera.psd;
+package org.coursera.psd.Week_1;
 
 import java.util.ArrayList;
 
@@ -81,11 +81,11 @@ public class EarthQuakeClient {
 
         //WHERE and WHAT to search
 //        String whereToSearch = "end";
-//        String whatToSearch = "California";
+//        String whatToSearch = "Alaska";
         String whereToSearch = "any";
-        String whatToSearch = "Creek";
+        String whatToSearch = "Can";
 //        String whereToSearch = "start";
-//        String whatToSearch = "Explosion";
+//        String whatToSearch = "Quarry Blast";
 
                 ArrayList<QuakeEntry> result = filterByPhrase(list, whereToSearch, whatToSearch);
 //        for (QuakeEntry qe : result){
@@ -99,14 +99,14 @@ public class EarthQuakeClient {
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         String source = "data/nov20quakedata.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
-        System.out.println("===============================");
+        System.out.println("\n===============================");
         System.out.println("quakesOfDepth()");
         System.out.println("read data for "+list.size()+" quakes");
         System.out.println("===============================");
 
         //MIN and MAX depth
-        double minDepth = -8_000;
-        double maxDepth = -5_000;
+        double minDepth = -4_000;
+        double maxDepth = -2_000;
         ArrayList<QuakeEntry> result = filterByDepth(list, minDepth, maxDepth);
         System.out.println("Find quakes with depth between " + minDepth +
                             " and " + maxDepth);

@@ -1,4 +1,4 @@
-package org.coursera.psd;
+package org.coursera.psd.Week_1;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,7 @@ public class LargestQuakes {
                             + list.get(largestIndex).getMagnitude());
 
         //HOWMANY
-        int howMany = 5;
+        int howMany = 50;
         ArrayList<QuakeEntry> largestQuakes = new ArrayList<>(getLargest(list, howMany));
         for (int i = 0; i < largestQuakes.size(); i++){
             System.out.println(largestQuakes.get(i));

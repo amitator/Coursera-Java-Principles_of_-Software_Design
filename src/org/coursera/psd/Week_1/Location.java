@@ -1,4 +1,4 @@
-package org.coursera.psd;
+package org.coursera.psd.Week_1;
 
 /*
  * Copyright (C) 2007 The Android Open Source Project
