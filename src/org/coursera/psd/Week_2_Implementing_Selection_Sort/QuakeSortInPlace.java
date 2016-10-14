@@ -14,6 +14,18 @@ public class QuakeSortInPlace {
         // TODO Auto-generated constructor stub
     }
 
+    public void onePassBubbleSort(ArrayList<QuakeEntry> quakeData, int numSorted){
+        for (int i = 0; i < quakeData.size() - numSorted - 1; i++){
+            if (quakeData.get(i).getMagnitude() > quakeData.get(i + 1).getMagnitude()){
+                QuakeEntry temp = quakeData.get(i);
+                quakeData.set(i, quakeData.get(i + 1));
+                quakeData.set(i + 1, temp);
+            }
+        }
+    }
+
+    public void
+
     public int getLargestDepth(ArrayList<QuakeEntry> quakeData, int index){
         int indexOfLargest = index;
         for (int i = index + 1; i < quakeData.size(); i++){
