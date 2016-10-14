@@ -41,13 +41,16 @@ public class QuakeSortInPlace {
     }
 
     public void sortByLargestDepth(ArrayList<QuakeEntry> in){
-        for (int i = 0; i < in.size(); i++){
+        int count = 0;
+        for (int i = 0; i < 50; i++){
             int indexOfLargest = getLargestDepth(in, i);
             QuakeEntry qeI = in.get(i);
             QuakeEntry qeLargest = in.get(indexOfLargest);
             in.set(i, qeLargest);
             in.set(indexOfLargest, qeI);
+            count = i + 1;
         }
+        System.out.println("Passes made: " + count);
     }
    
     public int getSmallestMagnitude(ArrayList<QuakeEntry> quakes, int from) {
@@ -72,7 +75,7 @@ public class QuakeSortInPlace {
 
     public boolean checkInSortedOrder(ArrayList<QuakeEntry> quakes){
         for (int i = 0; i < quakes.size() - 1; i++){
-            if(!(quakes.get(i).getMagnitude() < quakes.get(i + 1).getMagnitude())){
+            if(!(quakes.get(i).getMagnitude() <= quakes.get(i + 1).getMagnitude())){
                 return false;
             }
         }
@@ -110,18 +113,19 @@ public class QuakeSortInPlace {
     public void testSort() {
         EarthQuakeParser parser = new EarthQuakeParser(); 
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/earthquakeDataSampleSix1.atom";
-        //String source = "data/nov20quakedata.atom";
+        String source = "data/earthQuakeDataDec6sample1.atom";
+//        String source = "data/earthquakeDataSampleSix2.atom";
+//        String source = "data/nov20quakedata.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);  
        
         System.out.println("read data for "+list.size()+" quakes");    
 //        sortByMagnitude(list);
-//        sortByLargestDepth(list);
+        sortByLargestDepth(list);
 //        sortByMagnitudeWithBubbleSort(list);
 //        sortByMagnitudeWithBubbleSortWithCheck(list);
-        sortByMagnitudeWithCheck(list);
-        for (QuakeEntry qe: list) { 
-            System.out.println(qe);
+//        sortByMagnitudeWithCheck(list);
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
         } 
         
     }
