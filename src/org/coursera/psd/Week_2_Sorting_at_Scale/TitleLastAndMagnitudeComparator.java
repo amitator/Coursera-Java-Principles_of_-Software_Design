@@ -9,12 +9,11 @@ public class TitleLastAndMagnitudeComparator implements Comparator<QuakeEntry>{
     public int compare(QuakeEntry q1, QuakeEntry q2){
         String q1Title = q1.getInfo();
         String q2Title = q2.getInfo();
-        if (q1Title.substring(q1Title.lastIndexOf(" ") + 1)
-                .compareTo(q2Title.substring(q1Title.lastIndexOf(" ") + 1))
-                == 0){
+        String q1LastWord = q1Title.substring(q1Title.lastIndexOf(" ") + 1);
+        String q2LastWord = q2Title.substring(q2Title.lastIndexOf(" ") + 1);
+        if (q1LastWord.compareTo(q2LastWord) == 0){
             return Double.compare(q1.getMagnitude(), q2.getMagnitude());
         }
-        return q1Title.substring(q1Title.lastIndexOf(" ") + 1)
-                .compareTo(q2Title.substring(q1Title.lastIndexOf(" ") + 1));
+        return q1LastWord.compareTo(q2LastWord);
     }
 }

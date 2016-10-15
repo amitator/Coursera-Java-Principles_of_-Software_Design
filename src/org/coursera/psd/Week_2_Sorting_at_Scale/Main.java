@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
         DifferentSorters differentSorters = new DifferentSorters();
 //        differentSorters.sortWithCompareTo();
-        differentSorters.sortByTitleAndDepth();
+//        differentSorters.sortByTitleAndDepth();
+        differentSorters.sortByLastWordInTitleThenByMagnitude();
     }
 }
