@@ -16,6 +16,9 @@ public class DifferentSorters {
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
         Collections.sort(list);
+        int quakeNumber = 10;
+        System.out.println("\nPrint quake entry in position " + quakeNumber);
+        System.out.println(list.get(quakeNumber) + "\n");
         for(QuakeEntry qe: list) {
             System.out.println(qe);
         }
