@@ -12,14 +12,14 @@ import java.util.*;
 public class DifferentSorters {
     public void sortWithCompareTo() {
         EarthQuakeParser parser = new EarthQuakeParser();
-        String source = "data/nov20quakedata.atom";
+        String source = "data/earthQuakeDataWeekDec6sample1.atom";
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
         Collections.sort(list);
         System.out.println("\n=============================");
         System.out.println("sortWithCompareTo()");
         System.out.println("=============================");
-        int quakeNumber = 10;
+        int quakeNumber = 600;
         System.out.println("\nPrint quake entry in position " + quakeNumber);
         System.out.println(list.get(quakeNumber) + "\n");
         for(QuakeEntry qe: list) {
@@ -55,14 +55,14 @@ public class DifferentSorters {
 
     public void sortByTitleAndDepth(){
         EarthQuakeParser parser = new EarthQuakeParser();
-        String source = "data/nov20quakedata.atom";
+        String source = "data/earthQuakeDataWeekDec6sample2.atom";
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
         Collections.sort(list, new TitleAndDepthComparator());
         System.out.println("\n=============================");
         System.out.println("sortByTitleAndDepth()");
         System.out.println("=============================");
-        int quakeNumber = 10;
+        int quakeNumber = 500;
         System.out.println("\nPrint quake entry in position " + quakeNumber);
         System.out.println(list.get(quakeNumber) + "\n");
         for(QuakeEntry qe: list) {
@@ -72,14 +72,14 @@ public class DifferentSorters {
 
     public void sortByLastWordInTitleThenByMagnitude(){
         EarthQuakeParser parser = new EarthQuakeParser();
-        String source = "data/nov20quakedata.atom";
+        String source = "data/earthQuakeDataWeekDec6sample1.atom";
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
         Collections.sort(list, new TitleLastAndMagnitudeComparator());
         System.out.println("\n=============================");
         System.out.println("sortByLastWordInTitleThenByMagnitude()");
         System.out.println("=============================");
-        int quakeNumber = 10;
+        int quakeNumber = 500;
         System.out.println("\nPrint quake entry in position " + quakeNumber);
         System.out.println(list.get(quakeNumber) + "\n");
         for(QuakeEntry qe: list) {

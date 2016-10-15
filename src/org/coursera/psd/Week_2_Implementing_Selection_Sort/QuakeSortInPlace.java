@@ -33,7 +33,7 @@ public class QuakeSortInPlace {
     public int getLargestDepth(ArrayList<QuakeEntry> quakeData, int index){
         int indexOfLargest = index;
         for (int i = index + 1; i < quakeData.size(); i++){
-            if (Math.abs(quakeData.get(i).getDepth()) > Math.abs(quakeData.get(indexOfLargest).getDepth())){
+            if (quakeData.get(i).getDepth() > quakeData.get(indexOfLargest).getDepth()){
                 indexOfLargest = i;
             }
         }
@@ -113,16 +113,16 @@ public class QuakeSortInPlace {
     public void testSort() {
         EarthQuakeParser parser = new EarthQuakeParser(); 
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
-        String source = "data/earthQuakeDataDec6sample1.atom";
+        String source = "data/earthQuakeDataWeekDec6sample1.atom";
 //        String source = "data/earthquakeDataSampleSix2.atom";
 //        String source = "data/nov20quakedata.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);  
        
         System.out.println("read data for "+list.size()+" quakes");    
 //        sortByMagnitude(list);
-        sortByLargestDepth(list);
+//        sortByLargestDepth(list);
 //        sortByMagnitudeWithBubbleSort(list);
-//        sortByMagnitudeWithBubbleSortWithCheck(list);
+        sortByMagnitudeWithBubbleSortWithCheck(list);
 //        sortByMagnitudeWithCheck(list);
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
