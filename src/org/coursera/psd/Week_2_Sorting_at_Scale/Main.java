@@ -10,6 +10,7 @@ package org.coursera.psd.Week_2_Sorting_at_Scale;
 public class Main {
     public static void main(String[] args) {
         DifferentSorters differentSorters = new DifferentSorters();
-        differentSorters.sortWithCompareTo();
+//        differentSorters.sortWithCompareTo();
+        differentSorters.sortByTitleAndDepth();
     }
 }
