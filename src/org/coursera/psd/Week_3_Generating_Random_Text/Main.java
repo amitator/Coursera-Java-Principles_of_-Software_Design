@@ -8,4 +8,9 @@ package org.coursera.psd.Week_3_Generating_Random_Text;
  */
 
 public class Main {
+    public static void main(String[] args) {
+        MarkovRunner markovRunner = new MarkovRunner();
+//        markovRunner.runMarkovZero();
+        markovRunner.runMarkovOne();
+    }
 }
