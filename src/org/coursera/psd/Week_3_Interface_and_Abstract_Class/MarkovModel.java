@@ -50,4 +50,9 @@ public class MarkovModel extends AbstractMarkovModel{
         }
         return sb.toString();
     }
+
+    @Override
+    public String toString(){
+        return "MarkovModel of order: " + number;
+    }
 }
