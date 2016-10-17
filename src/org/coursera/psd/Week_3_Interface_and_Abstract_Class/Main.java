@@ -12,5 +12,6 @@ public class Main {
         MarkovRunnerWithInterface markov = new MarkovRunnerWithInterface();
 //        markov.runMarkov();
         markov.testHashMap();
+//        markov.compareMethods();
     }
 }

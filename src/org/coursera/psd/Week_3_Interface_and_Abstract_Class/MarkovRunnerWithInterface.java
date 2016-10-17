@@ -24,8 +24,8 @@ public class MarkovRunnerWithInterface {
         FileResource fr = new FileResource();
 		String st = fr.asString();
 		st = st.replace('\n', ' ');
-		int size = 200;
-		int seed = 33;
+		int size = 1000;
+		int seed = 42;
 		
         MarkovZero mz = new MarkovZero();
         runModel(mz, st, size, seed);
@@ -42,12 +42,29 @@ public class MarkovRunnerWithInterface {
     }
 
 	public void testHashMap(){
-        String st = "yes-this-is-a-thin-pretty-pink-thistle";
-		EfficientMarkovModel markovModel = new EfficientMarkovModel(2);
-        runModel(markovModel, st, 50, 42);
+        FileResource fr = new FileResource();
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+//        String st = "yes-this-is-a-thin-pretty-pink-thistle";
+        int size = 1000;
+        int seed = 615;
+		EfficientMarkovModel markovModel = new EfficientMarkovModel(5);
+        runModel(markovModel, st, size, seed);
 	}
 
-	private void printOut(String s){
+    public void compareMethods(){
+        FileResource fr = new FileResource();
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+        int size = 1000;
+        int seed = 42;
+        EfficientMarkovModel markovModel = new EfficientMarkovModel(2);
+        runModel(markovModel, st, size, seed);
+        MarkovModel mThree = new MarkovModel(2);
+        runModel(mThree, st, size, seed);
+    }
+
+    private void printOut(String s){
 		String[] words = s.split("\\s+");
 		int psize = 0;
 		System.out.println("----------------------------------");

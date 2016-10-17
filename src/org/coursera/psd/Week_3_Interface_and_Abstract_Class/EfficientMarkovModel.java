@@ -57,7 +57,7 @@ public class EfficientMarkovModel extends AbstractMarkovModel{
     }
 
     private void buildHashMap(){
-        for (int i = 0; i < myText.length() - 1; i++) {
+        for (int i = 0; i < myText.length() - number; i++) {
             ArrayList<String> result = new ArrayList<>();
             int index = i;
             String key = myText.substring(i, number + i);
