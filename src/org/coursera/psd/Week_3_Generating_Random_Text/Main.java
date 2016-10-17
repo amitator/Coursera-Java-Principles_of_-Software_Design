@@ -13,6 +13,7 @@ public class Main {
 //        markovRunner.runMarkovZero();
 //        markovRunner.runMarkovOne();
         Tester tester = new Tester();
-        tester.testGetFollows();
+//        tester.testGetFollows();
+        tester.testGetFollowsWithFile();
     }
 }
