@@ -9,6 +9,7 @@ package org.coursera.psd.Week_3_Interface_and_Abstract_Class;
 
 public interface IMarkovModel {
     public void setTraining(String text);
+    public void setRandom(int seed);
     
     public String getRandomText(int numChars);
     
