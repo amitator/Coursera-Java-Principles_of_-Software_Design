@@ -10,10 +10,7 @@ import java.util.Random;
  * @version (Oct 16/16)
  */
 
-public class MarkovOne implements IMarkovModel{
-    private String myText;
-    private Random myRandom;
-
+public class MarkovOne extends AbstractMarkovModel{
     public MarkovOne() {
         myRandom = new Random();
     }
@@ -45,20 +42,5 @@ public class MarkovOne implements IMarkovModel{
             key = next;
         }
         return sb.toString();
-    }
-
-    public ArrayList<String> getFollows(String key){
-        ArrayList<String> result = new ArrayList<>();
-        int index = 0;
-        int last = myText.lastIndexOf(key);
-        while (index <= last){
-            index = myText.indexOf(key, index);
-            if (index + key.length() == myText.length()){
-                break;
-            }
-            result.add(String.valueOf(myText.charAt(index + key.length())));
-            index++;
-        }
-        return result;
     }
 }
