@@ -15,7 +15,7 @@ public class Tester {
     public void testGetFollows(){
         MarkovOne markovOne = new MarkovOne();
         markovOne.setTraining("this is a test yes this is a test.");
-        ArrayList<Character> charList = markovOne.getFollows(".");
+        ArrayList<String> charList = markovOne.getFollows(".");
         System.out.println(charList);
     }
 
@@ -25,7 +25,7 @@ public class Tester {
         st = st.replace('\n', ' ');
         MarkovOne markovOne = new MarkovOne();
         markovOne.setTraining(st);
-        ArrayList<Character> charList = markovOne.getFollows("t");
+        ArrayList<String> charList = markovOne.getFollows("t");
         System.out.println("CharList length: " + charList.size());
 
     }

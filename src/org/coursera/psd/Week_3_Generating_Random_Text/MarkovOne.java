@@ -31,16 +31,23 @@ public class MarkovOne {
             return "";
         }
         StringBuilder sb = new StringBuilder();
+        int index = myRandom.nextInt(myText.length());
+        String key = String.valueOf(myText.charAt(index));
         for(int k=0; k < numChars; k++){
-            int index = myRandom.nextInt(myText.length());
-            sb.append(myText.charAt(index));
+            ArrayList<String> list = getFollows(key);
+            if (list.size() == 0){
+                break;
+            }
+            index = myRandom.nextInt(list.size());
+            String next = list.get(index);
+            sb.append(next);
+            key = next;
         }
-
         return sb.toString();
     }
 
-    public ArrayList<Character> getFollows(String key){
-        ArrayList<Character> result = new ArrayList<>();
+    public ArrayList<String> getFollows(String key){
+        ArrayList<String> result = new ArrayList<>();
         int index = 0;
         int last = myText.lastIndexOf(key);
         while (index < last){
@@ -48,7 +55,7 @@ public class MarkovOne {
             if (index + key.length() == myText.length()){
                 break;
             }
-            result.add(myText.charAt(index + key.length()));
+            result.add(String.valueOf(myText.charAt(index + key.length())));
             index++;
         }
         return result;
