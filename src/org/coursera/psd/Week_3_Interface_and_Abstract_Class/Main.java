@@ -9,9 +9,8 @@ package org.coursera.psd.Week_3_Interface_and_Abstract_Class;
 
 public class Main {
     public static void main(String[] args) {
-//        MarkovRunnerWithInterface markov = new MarkovRunnerWithInterface();
+        MarkovRunnerWithInterface markov = new MarkovRunnerWithInterface();
 //        markov.runMarkov();
-//        EfficientMarkovModel markovModel = new EfficientMarkovModel(4);
-
+        markov.testHashMap();
     }
 }

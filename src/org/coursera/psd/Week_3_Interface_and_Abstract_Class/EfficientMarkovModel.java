@@ -60,17 +60,19 @@ public class EfficientMarkovModel extends AbstractMarkovModel{
         for (int i = 0; i < myText.length() - 1; i++) {
             ArrayList<String> result = new ArrayList<>();
             int index = i;
-            String key = myText.substring(i, number - 1);
-            int last = myText.lastIndexOf(key);
-            while (index <= last) {
-                index = myText.indexOf(key, index);
-                if (index + key.length() == myText.length()) {
-                    break;
+            String key = myText.substring(i, number + i);
+            if (!map.containsKey(key)) {
+                int last = myText.lastIndexOf(key);
+                while (index <= last) {
+                    index = myText.indexOf(key, index);
+                    if (index + key.length() == myText.length()) {
+                        break;
+                    }
+                    result.add(String.valueOf(myText.charAt(index + key.length())));
+                    index++;
                 }
-                result.add(String.valueOf(myText.charAt(index + key.length())));
-                index++;
+                map.put(key, result);
             }
-            map.put(key, result);
         }
     }
 
@@ -91,6 +93,11 @@ public class EfficientMarkovModel extends AbstractMarkovModel{
         System.out.println("Number of KEYs in HashMap: " + map.size());
         System.out.println("Size of largest value: " + maxValue);
         System.out.println("maxValue KEY: " + maxKey);
+        for (Map.Entry<String, ArrayList<String>> entry : map.entrySet()) {
+            if (entry.getValue().size() == maxValue) {
+                System.out.println(entry.getKey() + "\t" + entry.getValue());
+            }
+        }
     }
 
     @Override
