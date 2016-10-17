@@ -1,10 +1,12 @@
 package org.coursera.psd.Week_3_Interface_and_Abstract_Class;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 /**
- * MarkovFour
+ * EfficientMarkovModel
  *
  * @author (Igor Prus)
  * @version (Oct 17/16)
@@ -12,6 +14,7 @@ import java.util.Random;
 
 public class EfficientMarkovModel extends AbstractMarkovModel{
     private int number;
+    private Map<String, ArrayList<String>> map = new HashMap<>();
 
     public EfficientMarkovModel(int num) {
         myRandom = new Random();
@@ -24,6 +27,8 @@ public class EfficientMarkovModel extends AbstractMarkovModel{
 
     public void setTraining(String s){
         myText = s.trim();
+        buildHashMap();
+        printHashMapInfo();
     }
 
     public String getRandomText(int numChars){
@@ -49,6 +54,43 @@ public class EfficientMarkovModel extends AbstractMarkovModel{
             }
         }
         return sb.toString();
+    }
+
+    private void buildHashMap(){
+        for (int i = 0; i < myText.length() - 1; i++) {
+            ArrayList<String> result = new ArrayList<>();
+            int index = i;
+            String key = myText.substring(i, number - 1);
+            int last = myText.lastIndexOf(key);
+            while (index <= last) {
+                index = myText.indexOf(key, index);
+                if (index + key.length() == myText.length()) {
+                    break;
+                }
+                result.add(String.valueOf(myText.charAt(index + key.length())));
+                index++;
+            }
+            map.put(key, result);
+        }
+    }
+
+    protected ArrayList<String> getFollows(String key){
+        return map.get(key);
+    }
+
+    public void printHashMapInfo(){
+        int maxValue = 0;
+        String maxKey = "";
+        for (Map.Entry<String, ArrayList<String>> entry : map.entrySet()){
+            int currentArraySize = entry.getValue().size();
+            if (currentArraySize > maxValue){
+                maxValue = currentArraySize;
+                maxKey = entry.getKey();
+            }
+        }
+        System.out.println("Number of KEYs in HashMap: " + map.size());
+        System.out.println("Size of largest value: " + maxValue);
+        System.out.println("maxValue KEY: " + maxKey);
     }
 
     @Override

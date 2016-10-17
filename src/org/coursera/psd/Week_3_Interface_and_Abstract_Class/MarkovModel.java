@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * MarkovFour
+ * MarkovModel
  *
  * @author (Igor Prus)
  * @version (Oct 17/16)
