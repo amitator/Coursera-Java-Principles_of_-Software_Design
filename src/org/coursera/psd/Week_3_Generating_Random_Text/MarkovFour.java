@@ -42,7 +42,7 @@ public class MarkovFour {
             index = myRandom.nextInt(list.size());
             String next = list.get(index);
             sb.append(next);
-            key = next;
+            key = key.substring(1) + next;
         }
         return sb.toString();
     }
