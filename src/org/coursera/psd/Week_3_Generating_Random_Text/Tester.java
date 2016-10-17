@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Tester. To test getFollows()
  *
  * @author (Igor Prus)
- * @version (Oct 16/16)
+ * @version (Oct 17/16)
  */
 
 public class Tester {

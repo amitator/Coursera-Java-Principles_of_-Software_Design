@@ -4,7 +4,7 @@ package org.coursera.psd.Week_3_Interface_and_Abstract_Class;
  * MarkovZero
  *
  * @author (Igor Prus)
- * @version (Oct 16/16)
+ * @version (Oct 17/16)
  */
 
 import java.util.Random;

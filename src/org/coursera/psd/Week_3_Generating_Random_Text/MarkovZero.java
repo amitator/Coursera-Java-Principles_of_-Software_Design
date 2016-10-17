@@ -4,7 +4,7 @@ package org.coursera.psd.Week_3_Generating_Random_Text;
  * MarkovZero
  *
  * @author (Igor Prus)
- * @version (Oct 16/16)
+ * @version (Oct 17/16)
  */
 
 import java.util.Random;

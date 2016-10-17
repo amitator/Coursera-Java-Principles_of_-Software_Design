@@ -7,7 +7,7 @@ import java.util.Random;
  * MarkovFour
  *
  * @author (Igor Prus)
- * @version (Oct 16/16)
+ * @version (Oct 17/16)
  */
 
 public class MarkovFour extends AbstractMarkovModel{

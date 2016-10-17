@@ -7,7 +7,7 @@ import java.util.Random;
  * MarkovOne
  *
  * @author (Igor Prus)
- * @version (Oct 16/16)
+ * @version (Oct 17/16)
  */
 
 public class MarkovOne extends AbstractMarkovModel{
