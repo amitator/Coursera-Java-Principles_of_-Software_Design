@@ -41,6 +41,12 @@ public class MarkovRunnerWithInterface {
 
     }
 
+	public void testHashMap(){
+        String st = "yes-this-is-a-thin-pretty-pink-thistle";
+		EfficientMarkovModel markovModel = new EfficientMarkovModel(2);
+        runModel(markovModel, st, 50, 42);
+	}
+
 	private void printOut(String s){
 		String[] words = s.split("\\s+");
 		int psize = 0;

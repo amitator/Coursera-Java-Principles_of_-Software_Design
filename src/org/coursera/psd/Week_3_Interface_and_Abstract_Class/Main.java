@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
 //        MarkovRunnerWithInterface markov = new MarkovRunnerWithInterface();
 //        markov.runMarkov();
+//        EfficientMarkovModel markovModel = new EfficientMarkovModel(4);
 
     }
 }
