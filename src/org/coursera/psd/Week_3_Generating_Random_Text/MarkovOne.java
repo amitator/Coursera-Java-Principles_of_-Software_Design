@@ -1,5 +1,6 @@
 package org.coursera.psd.Week_3_Generating_Random_Text;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -36,5 +37,15 @@ public class MarkovOne {
         }
 
         return sb.toString();
+    }
+
+    public ArrayList<Character> getFollows(String key){
+        ArrayList<Character> result = new ArrayList<>();
+        for (int i = 0; i < myText.length()-1; i++) {
+            if (key.equals(myText.charAt(i))){
+                result.add(myText.charAt(i + 1));
+            }
+        }
+        return result;
     }
 }
