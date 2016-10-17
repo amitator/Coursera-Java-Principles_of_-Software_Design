@@ -12,7 +12,8 @@ public class Main {
         MarkovRunner markovRunner = new MarkovRunner();
 //        markovRunner.runMarkovZero();
 //        markovRunner.runMarkovOne();
-        markovRunner.runMarkovFour();
+//        markovRunner.runMarkovFour();
+        markovRunner.runMarkovModel();
 //        Tester tester = new Tester();
 //        tester.testGetFollows();
 //        tester.testGetFollowsWithFile();
