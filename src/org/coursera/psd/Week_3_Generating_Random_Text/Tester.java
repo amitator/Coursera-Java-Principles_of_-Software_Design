@@ -13,7 +13,7 @@ public class Tester {
     public void testGetFollows(){
         MarkovOne markovOne = new MarkovOne();
         markovOne.setTraining("this is a test yes this is a test.");
-        ArrayList<Character> charList = markovOne.getFollows("t");
+        ArrayList<Character> charList = markovOne.getFollows("e");
         System.out.println(charList);
     }
 }
