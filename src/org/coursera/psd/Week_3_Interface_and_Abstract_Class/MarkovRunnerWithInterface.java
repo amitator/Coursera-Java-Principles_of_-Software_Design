@@ -47,8 +47,8 @@ public class MarkovRunnerWithInterface {
         st = st.replace('\n', ' ');
 //        String st = "yes-this-is-a-thin-pretty-pink-thistle";
         int size = 100;
-        int seed = 615;
-		EfficientMarkovModel markovModel = new EfficientMarkovModel(5);
+        int seed = 5;
+		EfficientMarkovModel markovModel = new EfficientMarkovModel(2);
         runModel(markovModel, st, size, seed);
 	}
 
