@@ -1,7 +1,7 @@
 package org.coursera.psd.Week_3_Word_N_Grams;
 
 /**
- * MarkovZero
+ * IMarkovModel Interface
  *
  * @author (Igor Prus)
  * @version (Oct 18/16)

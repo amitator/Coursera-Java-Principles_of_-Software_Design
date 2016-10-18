@@ -1,7 +1,17 @@
 package org.coursera.psd.Week_3_Word_N_Grams;
 
 /**
- * Created by usver on 10/18/2016.
+ * MarkovZero
+ *
+ * @author (Igor Prus)
+ * @version (Oct 18/16)
  */
+
 public class Main {
+    public static void main(String[] args) {
+//        MarkovWordOne markov = new MarkovWordOne();
+//        markov.testIndexOf();
+        MarkovRunner markov = new MarkovRunner();
+        markov.runMarkov();
+    }
 }

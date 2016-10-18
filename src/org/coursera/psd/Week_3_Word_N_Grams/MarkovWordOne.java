@@ -1,7 +1,7 @@
 package org.coursera.psd.Week_3_Word_N_Grams;
 
 /**
- * MarkovZero
+ * MarkovWordOne
  *
  * @author (Igor Prus)
  * @version (Oct 18/16)
@@ -69,7 +69,7 @@ public class MarkovWordOne implements IMarkovModel {
 			}
 			String next = myText[start + 1];
 			follows.add(next);
-			pos = start + key.length();
+			pos = ++start;
 		}
 	    return follows;
     }
@@ -77,8 +77,8 @@ public class MarkovWordOne implements IMarkovModel {
 	public void testIndexOf(){
 		String str = "this is just a test yes this is a simple test";
 		String[] words = str.split("\\s+");
-		String target = "this";
-		int start = 0;
+		String target = "test";
+		int start = 5;
 		int indx = indexOf(words, target, start);
 		System.out.println(indx);
 	}

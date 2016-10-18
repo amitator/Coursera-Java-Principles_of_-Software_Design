@@ -1,7 +1,7 @@
 package org.coursera.psd.Week_3_Word_N_Grams;
 
 /**
- * MarkovZero
+ * MarkovRunner
  *
  * @author (Igor Prus)
  * @version (Oct 18/16)
@@ -34,7 +34,7 @@ public class MarkovRunner {
         String st = fr.asString(); 
         st = st.replace('\n', ' '); 
         MarkovWordOne markovWord = new MarkovWordOne(); 
-        runModel(markovWord, st, 200); 
+        runModel(markovWord, st, 120, 175);
     } 
 
     private void printOut(String s){
