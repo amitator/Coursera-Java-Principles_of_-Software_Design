@@ -34,7 +34,7 @@ public class MarkovRunner {
         String st = fr.asString(); 
         st = st.replace('\n', ' '); 
         MarkovWordOne markovWord = new MarkovWordOne(); 
-        runModel(markovWord, st, 120, 175);
+        runModel(markovWord, st, 120, 139);
     } 
 
     public void runMarkovTwo() {
@@ -42,8 +42,8 @@ public class MarkovRunner {
         String st = fr.asString();
         st = st.replace('\n', ' ');
         MarkovWordTwo markovWord = new MarkovWordTwo();
-        int size = 500;
-        int seed = 549;
+        int size = 50;
+        int seed = 832;
         runModel(markovWord, st, size, seed);
     }
 
