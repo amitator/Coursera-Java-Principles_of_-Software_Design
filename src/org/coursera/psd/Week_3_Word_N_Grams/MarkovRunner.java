@@ -42,7 +42,7 @@ public class MarkovRunner {
         String st = fr.asString();
         st = st.replace('\n', ' ');
         MarkovWordTwo markovWord = new MarkovWordTwo();
-        int size = 100;
+        int size = 500;
         int seed = 549;
         runModel(markovWord, st, size, seed);
     }

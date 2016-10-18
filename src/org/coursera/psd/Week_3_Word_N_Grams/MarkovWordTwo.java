@@ -28,13 +28,14 @@ public class MarkovWordTwo implements IMarkovModel{
 
     public String getRandomText(int numWords){
         StringBuilder sb = new StringBuilder();
-        int index = myRandom.nextInt(myText.length-1);  // random word to start with
+        int index = myRandom.nextInt(myText.length-2);  // random word to start with
         String key1 = myText[index];
         String key2 = myText[index + 1];
         sb.append(key1);
+        sb.append(" ");
         sb.append(key2);
         sb.append(" ");
-        for(int i=0; i < numWords-1; i++){
+        for(int i=0; i < numWords; i++){
             ArrayList<String> follows = getFollows(key1, key2);
             if (follows.size() == 0) {
                 break;
@@ -43,16 +44,17 @@ public class MarkovWordTwo implements IMarkovModel{
             String next = follows.get(index);
             sb.append(next);
             sb.append(" ");
-            key1 = next;
+            key1 = key2;
+            key2 = next;
         }
 
         return sb.toString().trim();
     }
 
     private int indexOf(String [] words, String target1, String target2, int start){
-        for (int i = start; i < words.length; i++){
+        for (int i = start; i < words.length - 1; i++){
             if (words[i].equals(target1) && words[i + 1].equals(target2)){
-                return i;
+                return i + 1;
             }
         }
         return -1;
@@ -63,11 +65,7 @@ public class MarkovWordTwo implements IMarkovModel{
         int pos = 0;
         while (pos < myText.length){
             int start = indexOf(myText, key1, key2, pos);
-            if (start == -1){
-                break;
-            }
-//            if (start + key1.length() + key2.length() >= myText.length){
-            if (start + 2 >= myText.length){
+            if (start == -1 || start + 1 >= myText.length){
                 break;
             }
             String next = myText[start + 1];
@@ -80,9 +78,10 @@ public class MarkovWordTwo implements IMarkovModel{
     public void testIndexOf(){
         String str = "this is just a test yes this is a simple test";
         String[] words = str.split("\\s+");
-        String target = "test";
-        int start = 5;
-//        int indx = indexOf(words, target, start);
-//        System.out.println(indx);
+        String target1 = "a";
+        String target2 = "test";
+        int start = 0;
+        int indx = indexOf(words, target1, target2, start);
+        System.out.println(indx);
     }
 }

@@ -10,6 +10,7 @@ package org.coursera.psd.Week_3_Word_N_Grams;
 public class Main {
     public static void main(String[] args) {
 //        MarkovWordOne markov = new MarkovWordOne();
+//        MarkovWordTwo markov = new MarkovWordTwo();
 //        markov.testIndexOf();
         MarkovRunner markov = new MarkovRunner();
 //        markov.runMarkov();
