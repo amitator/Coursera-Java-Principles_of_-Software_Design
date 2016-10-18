@@ -7,7 +7,8 @@ package org.coursera.psd.Week_3_Word_N_Grams;
  * @version (Oct 18/16)
  */
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class MarkovWordOne implements IMarkovModel {
     private String[] myText;
@@ -45,10 +46,41 @@ public class MarkovWordOne implements IMarkovModel {
 		
 		return sb.toString().trim();
 	}
+
+	private int indexOf(String [] words, String target, int start){
+		for (int i = start; i < words.length; i++){
+			if (words[i].equals(target)){
+				return i;
+			}
+		}
+		return -1;
+	}
 	
 	private ArrayList<String> getFollows(String key) {
 	    ArrayList<String> follows = new ArrayList<String>();
+		int pos = 0;
+		while (pos < myText.length){
+			int start = indexOf(myText, key, pos);
+			if (start == -1){
+				break;
+			}
+			if (start + key.length() >= myText.length){
+				break;
+			}
+			String next = myText[start + 1];
+			follows.add(next);
+			pos = start + key.length();
+		}
 	    return follows;
     }
+
+	public void testIndexOf(){
+		String str = "this is just a test yes this is a simple test";
+		String[] words = str.split("\\s+");
+		String target = "this";
+		int start = 0;
+		int indx = indexOf(words, target, start);
+		System.out.println(indx);
+	}
 
 }
