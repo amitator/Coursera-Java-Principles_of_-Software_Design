@@ -29,11 +29,13 @@ public class MarkovWordTwo implements IMarkovModel{
     public String getRandomText(int numWords){
         StringBuilder sb = new StringBuilder();
         int index = myRandom.nextInt(myText.length-1);  // random word to start with
-        String key = myText[index];
-        sb.append(key);
+        String key1 = myText[index];
+        String key2 = myText[index + 1];
+        sb.append(key1);
+        sb.append(key2);
         sb.append(" ");
-        for(int k=0; k < numWords-1; k++){
-            ArrayList<String> follows = getFollows(key);
+        for(int i=0; i < numWords-1; i++){
+            ArrayList<String> follows = getFollows(key1, key2);
             if (follows.size() == 0) {
                 break;
             }
@@ -41,30 +43,31 @@ public class MarkovWordTwo implements IMarkovModel{
             String next = follows.get(index);
             sb.append(next);
             sb.append(" ");
-            key = next;
+            key1 = next;
         }
 
         return sb.toString().trim();
     }
 
-    private int indexOf(String [] words, String target, int start){
+    private int indexOf(String [] words, String target1, String target2, int start){
         for (int i = start; i < words.length; i++){
-            if (words[i].equals(target)){
+            if (words[i].equals(target1) && words[i + 1].equals(target2)){
                 return i;
             }
         }
         return -1;
     }
 
-    private ArrayList<String> getFollows(String key) {
+    private ArrayList<String> getFollows(String key1, String key2) {
         ArrayList<String> follows = new ArrayList<String>();
         int pos = 0;
         while (pos < myText.length){
-            int start = indexOf(myText, key, pos);
+            int start = indexOf(myText, key1, key2, pos);
             if (start == -1){
                 break;
             }
-            if (start + key.length() >= myText.length){
+//            if (start + key1.length() + key2.length() >= myText.length){
+            if (start + 2 >= myText.length){
                 break;
             }
             String next = myText[start + 1];
@@ -79,7 +82,7 @@ public class MarkovWordTwo implements IMarkovModel{
         String[] words = str.split("\\s+");
         String target = "test";
         int start = 5;
-        int indx = indexOf(words, target, start);
-        System.out.println(indx);
+//        int indx = indexOf(words, target, start);
+//        System.out.println(indx);
     }
 }

@@ -12,6 +12,7 @@ public class Main {
 //        MarkovWordOne markov = new MarkovWordOne();
 //        markov.testIndexOf();
         MarkovRunner markov = new MarkovRunner();
-        markov.runMarkov();
+//        markov.runMarkov();
+        markov.runMarkovTwo();
     }
 }

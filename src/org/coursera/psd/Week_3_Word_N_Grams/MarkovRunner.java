@@ -37,6 +37,16 @@ public class MarkovRunner {
         runModel(markovWord, st, 120, 175);
     } 
 
+    public void runMarkovTwo() {
+        FileResource fr = new FileResource();
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+        MarkovWordTwo markovWord = new MarkovWordTwo();
+        int size = 100;
+        int seed = 549;
+        runModel(markovWord, st, size, seed);
+    }
+
     private void printOut(String s){
         String[] words = s.split("\\s+");
         int psize = 0;
