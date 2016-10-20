@@ -119,7 +119,7 @@ public class EfficientMarkovWord implements IMarkovModel{
         System.out.println("Keys that have maximum value: ");
         for (WordGram wordGram : myMap.keySet()) {
             if (myMap.get(wordGram).size() == largest) {
-//        System.out.println(wordGram.toString());
+                System.out.println(wordGram.toString());
             }
         }
     }

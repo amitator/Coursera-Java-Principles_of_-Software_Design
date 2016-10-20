@@ -33,9 +33,9 @@ public class MarkovRunner {
         FileResource fr = new FileResource(); 
         String st = fr.asString(); 
         st = st.replace('\n', ' ');
-        MarkovWord markovWord = new MarkovWord(3);
-        int size = 100;
-        int seed = 643;
+        MarkovWord markovWord = new MarkovWord(5);
+        int size = 50;
+        int seed = 844;
         runModel(markovWord, st, size, seed);
         //MarkovWordOne markovWord = new MarkovWordOne(); 
         //runModel(markovWord, st, 200); 
@@ -44,10 +44,11 @@ public class MarkovRunner {
     public void testHashMap(){
         FileResource fr = new FileResource();
         String st = fr.asString();
+//        String st = "this is a test yes this is really a test yes a test this is wow";
         st = st.replace('\n', ' ');
         EfficientMarkovWord markovWord = new EfficientMarkovWord(2);
         int size = 50;
-        int seed = 42;
+        int seed = 65;
         runModel(markovWord, st, size, seed);
     }
 
