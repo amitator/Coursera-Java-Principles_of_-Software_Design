@@ -51,8 +51,14 @@ public class MarkovWord implements IMarkovModel{
     }
 
     private int indexOf(String[] words, WordGram target, int start){
-        for (int i = start; i < words.length; i++){
-            if (words[i].equals(target)){
+        int targetSize = target.length();
+        for (int i = start; i < words.length - targetSize; i++){
+            String[] temp = new String[targetSize];
+            for (int j = 0; j < targetSize; j++){
+                temp[j] = words[j];
+            }
+            WordGram tempWg = new WordGram(temp, 0, targetSize);
+            if (target.equals(tempWg)){
                 return i;
             }
         }
@@ -82,6 +88,8 @@ public class MarkovWord implements IMarkovModel{
         String[] words = str.split("\\s+");
         String target = "test";
         int start = 5;
+        String[] wgStr = {"just", "a", "test"};
+        WordGram wg = new WordGram(wgStr, 0, 3);
         int indx = indexOf(words, target, start);
         System.out.println(indx);
     }
