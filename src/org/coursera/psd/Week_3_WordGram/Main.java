@@ -11,7 +11,9 @@ public class Main {
     public static void main(String[] args) {
 //        WordGramTester wg = new WordGramTester();
 //        wg.testWordGram();
-        MarkovWord markov = new MarkovWord(3);
-        markov.testIndexOf();
+//        MarkovWord markov = new MarkovWord(3);
+//        markov.testIndexOf();
+        MarkovRunner runner = new MarkovRunner();
+        runner.runMarkov();
     }
 }

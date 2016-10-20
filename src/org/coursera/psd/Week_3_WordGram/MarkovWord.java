@@ -30,25 +30,29 @@ public class MarkovWord implements IMarkovModel{
     }
 
     public String getRandomText(int numWords){
-//        StringBuilder sb = new StringBuilder();
-//        int index = myRandom.nextInt(myText.length-1);  // random word to start with
-//        String key = myText[index];
-//        sb.append(key);
-//        sb.append(" ");
-//        for(int k=0; k < numWords-1; k++){
-//            ArrayList<String> follows = getFollows(key);
-//            if (follows.size() == 0) {
-//                break;
-//            }
-//            index = myRandom.nextInt(follows.size());
-//            String next = follows.get(index);
-//            sb.append(next);
-//            sb.append(" ");
-//            key = next;
-//        }
-//
-//        return sb.toString().trim();
-        return "";
+        StringBuilder sb = new StringBuilder();
+        int index = myRandom.nextInt(myText.length - myOrder);  // random word to start with
+        String key = myText[index];
+        String[] startWG = new String [myOrder];
+        startWG[0] = key;
+        for (int i = 1; i < myOrder; i++){
+            startWG[i] = myText[index + i];
+        }
+        WordGram wordGram = new WordGram(startWG, 0, myOrder);
+        sb.append(wordGram.toString());
+        for(int k=0; k < numWords - myOrder; k++){
+            ArrayList<String> follows = getFollows(wordGram);
+            if (follows.size() == 0) {
+                break;
+            }
+            index = myRandom.nextInt(follows.size());
+            String next = follows.get(index);
+            sb.append(next);
+            sb.append(" ");
+            wordGram = wordGram.shiftAdd(next);
+        }
+
+        return sb.toString().trim();
     }
 
     private int indexOf(String[] words, WordGram target, int start){
@@ -77,7 +81,7 @@ public class MarkovWord implements IMarkovModel{
             if (start + kGram.length() >= myText.length){
                 break;
             }
-            String next = myText[start + kGram.length() + 1];
+            String next = myText[start + kGram.length()];
             follows.add(next);
             pos = ++start;
         }

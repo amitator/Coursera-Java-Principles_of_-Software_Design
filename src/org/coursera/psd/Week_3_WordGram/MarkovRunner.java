@@ -32,7 +32,11 @@ public class MarkovRunner {
     public void runMarkov() { 
         FileResource fr = new FileResource(); 
         String st = fr.asString(); 
-        st = st.replace('\n', ' '); 
+        st = st.replace('\n', ' ');
+        MarkovWord markovWord = new MarkovWord(3);
+        int size = 100;
+        int seed = 643;
+        runModel(markovWord, st, size, seed);
         //MarkovWordOne markovWord = new MarkovWordOne(); 
         //runModel(markovWord, st, 200); 
     } 
