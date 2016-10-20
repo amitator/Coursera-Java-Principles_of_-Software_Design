@@ -1,5 +1,6 @@
 package org.coursera.psd.Week_3_WordGram;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -65,23 +66,23 @@ public class MarkovWord implements IMarkovModel{
         return -1;
     }
 
-//    private ArrayList<String> getFollows(String key) {
-//        ArrayList<String> follows = new ArrayList<String>();
-//        int pos = 0;
-//        while (pos < myText.length){
-//            int start = indexOf(myText, key, pos);
-//            if (start == -1){
-//                break;
-//            }
-//            if (start + key.length() >= myText.length){
-//                break;
-//            }
-//            String next = myText[start + 1];
-//            follows.add(next);
-//            pos = ++start;
-//        }
-//        return follows;
-//    }
+    private ArrayList<String> getFollows(WordGram kGram) {
+        ArrayList<String> follows = new ArrayList<String>();
+        int pos = 0;
+        while (pos < myText.length){
+            int start = indexOf(myText, kGram, pos);
+            if (start == -1){
+                break;
+            }
+            if (start + kGram.length() >= myText.length){
+                break;
+            }
+            String next = myText[start + kGram.length() + 1];
+            follows.add(next);
+            pos = ++start;
+        }
+        return follows;
+    }
 
     public void testIndexOf(){
         String str = "this is just a test yes this is a simple test";
