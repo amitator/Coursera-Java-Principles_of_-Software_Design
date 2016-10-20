@@ -1,7 +1,7 @@
 package org.coursera.psd.Week_3_WordGram;
 
 /**
- * WordGramTester
+ * WordGram
  *
  * @author (Igor Prus)
  * @version (Oct 18/16)
@@ -24,20 +24,27 @@ public class WordGram {
     }
 
     public int length(){
-        // TODO: Complete this method
-        return 0;
+        return myWords.length;
     }
 
     public String toString(){
         String ret = "";
-        // TODO: Complete this method
-
+        for (int i = 0; i < myWords.length; i++){
+            ret = ret + myWords[i] + " ";
+        }
         return ret.trim();
     }
 
     public boolean equals(Object o) {
         WordGram other = (WordGram) o;
-        // TODO: Complete this method
+        if (this.length() != other.length()){
+            return false;
+        }
+        for (int i = 0; i < this.length(); i++){
+            if (this.myWords[i] != other.myWords[i]){
+                return false;
+            }
+        }
         return true;
 
     }
@@ -46,7 +53,11 @@ public class WordGram {
         WordGram out = new WordGram(myWords, 0, myWords.length);
         // shift all words one towards 0 and add word at the end. 
         // you lose the first word
-        // TODO: Complete this method
+        int i;
+        for (i = 0; i < myWords.length-1; i++){
+            out.myWords[i] = this.myWords[i + 1];
+        }
+        out.myWords[i + 1] = word;
         return out;
     }
 

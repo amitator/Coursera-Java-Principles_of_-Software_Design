@@ -1,7 +1,7 @@
 package org.coursera.psd.Week_3_WordGram;
 
 /**
- * WordGramTester
+ * MarkovRunner
  *
  * @author (Igor Prus)
  * @version (Oct 18/16)
