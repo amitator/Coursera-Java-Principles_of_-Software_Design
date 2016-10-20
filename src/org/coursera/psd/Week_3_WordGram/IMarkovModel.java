@@ -4,7 +4,7 @@ package org.coursera.psd.Week_3_WordGram;
  * IMarkovModel
  *
  * @author (Igor Prus)
- * @version (Oct 18/16)
+ * @version (Oct 20/16)
  */
 
 public interface IMarkovModel {

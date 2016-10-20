@@ -4,7 +4,7 @@ package org.coursera.psd.Week_3_WordGram;
  * WordGramTester
  *
  * @author (Igor Prus)
- * @version (Oct 18/16)
+ * @version (Oct 20/16)
  */
 
 import java.util.*;
@@ -17,6 +17,8 @@ public class WordGramTester {
 		for(int index = 0; index <= words.length - size; index += 1) {
 			WordGram wg = new WordGram(words,index,size);
 			System.out.println(index+"\t"+wg.length()+"\t"+wg);
+            WordGram newWg = wg.shiftAdd("!!!!!!");
+            System.out.println(index+"\t"+newWg.length()+"\t"+newWg);
 		}
 
 	}

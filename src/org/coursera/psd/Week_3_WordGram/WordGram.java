@@ -4,7 +4,7 @@ package org.coursera.psd.Week_3_WordGram;
  * WordGram
  *
  * @author (Igor Prus)
- * @version (Oct 18/16)
+ * @version (Oct 20/16)
  */
 
 public class WordGram {
@@ -54,10 +54,10 @@ public class WordGram {
         // shift all words one towards 0 and add word at the end. 
         // you lose the first word
         int i;
-        for (i = 0; i < myWords.length-1; i++){
+        for (i = 0; i < myWords.length - 1; i++){
             out.myWords[i] = this.myWords[i + 1];
         }
-        out.myWords[i + 1] = word;
+        out.myWords[i] = word;
         return out;
     }
 

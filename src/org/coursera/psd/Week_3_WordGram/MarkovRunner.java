@@ -4,7 +4,7 @@ package org.coursera.psd.Week_3_WordGram;
  * MarkovRunner
  *
  * @author (Igor Prus)
- * @version (Oct 18/16)
+ * @version (Oct 20/16)
  */
 
 import edu.duke.*;
