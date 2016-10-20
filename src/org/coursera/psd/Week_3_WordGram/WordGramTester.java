@@ -18,6 +18,7 @@ public class WordGramTester {
 			WordGram wg = new WordGram(words,index,size);
 			System.out.println(index+"\t"+wg.length()+"\t"+wg);
 		}
+
 	}
 	
 	public void testWordGramEquals(){
