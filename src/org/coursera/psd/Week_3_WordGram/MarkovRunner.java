@@ -39,7 +39,17 @@ public class MarkovRunner {
         runModel(markovWord, st, size, seed);
         //MarkovWordOne markovWord = new MarkovWordOne(); 
         //runModel(markovWord, st, 200); 
-    } 
+    }
+
+    public void testHashMap(){
+        FileResource fr = new FileResource();
+        String st = fr.asString();
+        st = st.replace('\n', ' ');
+        EfficientMarkovWord markovWord = new EfficientMarkovWord(2);
+        int size = 50;
+        int seed = 42;
+        runModel(markovWord, st, size, seed);
+    }
 
     private void printOut(String s){
         String[] words = s.split("\\s+");
