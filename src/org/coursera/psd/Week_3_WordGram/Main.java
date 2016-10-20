@@ -9,7 +9,9 @@ package org.coursera.psd.Week_3_WordGram;
 
 public class Main {
     public static void main(String[] args) {
-        WordGramTester wg = new WordGramTester();
-        wg.testWordGram();
+//        WordGramTester wg = new WordGramTester();
+//        wg.testWordGram();
+        MarkovWord markov = new MarkovWord(3);
+        markov.testIndexOf();
     }
 }

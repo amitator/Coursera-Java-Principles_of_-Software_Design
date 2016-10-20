@@ -41,7 +41,7 @@ public class WordGram {
             return false;
         }
         for (int i = 0; i < this.length(); i++){
-            if (this.myWords[i] != other.myWords[i]){
+            if (!this.myWords[i].equals(other.myWords[i])){
                 return false;
             }
         }
