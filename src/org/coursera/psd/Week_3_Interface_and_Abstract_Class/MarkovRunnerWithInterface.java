@@ -15,7 +15,8 @@ public class MarkovRunnerWithInterface {
 		markov.setRandom(seed);
         System.out.println("running with " + markov);
         for(int k=0; k < 3; k++){
-			String st= markov.getRandomText(size);
+//            markov.setRandom(seed);
+            String st= markov.getRandomText(size);
 			printOut(st);
 		}
     }
@@ -24,20 +25,20 @@ public class MarkovRunnerWithInterface {
         FileResource fr = new FileResource();
 		String st = fr.asString();
 		st = st.replace('\n', ' ');
-		int size = 1000;
-		int seed = 42;
+		int size = 500;
+		int seed = 953;
 		
-        MarkovZero mz = new MarkovZero();
-        runModel(mz, st, size, seed);
+//        MarkovZero mz = new MarkovZero();
+//        runModel(mz, st, size, seed);
     
-        MarkovOne mOne = new MarkovOne();
-        runModel(mOne, st, size, seed);
-        
-        MarkovModel mThree = new MarkovModel(3);
+//        MarkovOne mOne = new MarkovOne();
+//        runModel(mOne, st, size, seed);
+////
+        MarkovModel mThree = new MarkovModel(7);
         runModel(mThree, st, size, seed);
-        
-        MarkovFour mFour = new MarkovFour();
-        runModel(mFour, st, size, seed);
+//
+//        MarkovFour mFour = new MarkovFour();
+//        runModel(mFour, st, size, seed);
 
     }
 
@@ -46,9 +47,9 @@ public class MarkovRunnerWithInterface {
         String st = fr.asString();
         st = st.replace('\n', ' ');
 //        String st = "yes-this-is-a-thin-pretty-pink-thistle";
-        int size = 100;
-        int seed = 5;
-		EfficientMarkovModel markovModel = new EfficientMarkovModel(2);
+        int size = 500;
+        int seed = 531;
+		EfficientMarkovModel markovModel = new EfficientMarkovModel(5);
         runModel(markovModel, st, size, seed);
 	}
 

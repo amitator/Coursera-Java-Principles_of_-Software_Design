@@ -25,7 +25,7 @@ public class Tester {
         st = st.replace('\n', ' ');
         MarkovOne markovOne = new MarkovOne();
         markovOne.setTraining(st);
-        ArrayList<String> charList = markovOne.getFollows("th");
+        ArrayList<String> charList = markovOne.getFollows("he");
         System.out.println("CharList length: " + charList.size());
 
     }
