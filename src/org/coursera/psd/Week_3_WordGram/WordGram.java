@@ -46,7 +46,11 @@ public class WordGram {
             }
         }
         return true;
+    }
 
+    @Override
+    public int hashCode(){
+        return this.toString().hashCode();
     }
 
     public WordGram shiftAdd(String word) {	
